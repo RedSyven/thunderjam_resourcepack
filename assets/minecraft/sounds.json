@@ -1,0 +1,20 @@
+{
+    "thunder_jam.v1": {
+        "sounds": ["thunder_jam/v1"]
+    },
+    "thunder_jam.v2": {
+        "sounds": ["thunder_jam/v2"]
+    },
+    "thunder_jam.v2b": {
+        "sounds": ["thunder_jam/v2b"]
+    },
+    "thunder_jam.v3": {
+        "sounds": ["thunder_jam/v3"]
+    },
+    "thunder_jam.v4": {
+        "sounds": ["thunder_jam/v4"]
+    },
+    "thunder_jam.v5": {
+        "sounds": ["thunder_jam/v5"]
+    }
+}

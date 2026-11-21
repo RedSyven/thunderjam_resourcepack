@@ -1,0 +1,29 @@
+name: Build resource pack
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Zip pack
+        run: |
+          zip -r -X pack.zip pack.mcmeta pack.png assets
+          echo "SHA1=$(sha1sum pack.zip | cut -d' ' -f1)" >> "$GITHUB_ENV"
+
+      - name: Publish release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TAG="build-${{ github.run_number }}"
+          gh release create "$TAG" pack.zip \
+            --title "$TAG" \
+            --notes "SHA1: \`${SHA1}\`" \
+            --latest
